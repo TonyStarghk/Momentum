@@ -1,0 +1,7 @@
+{
+  "name": "Momentum",
+  "description": "Minimal dark-mode habit tracking app featuring clean Bento Grid architecture, Leaderboard Arena, social progress sharing, and personalized Gemini AI consistency coaching per task.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

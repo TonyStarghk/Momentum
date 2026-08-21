@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.9"
+        android:scaleY="0.9"
+        android:translateX="5.4"
+        android:translateY="5.4">
+        <!-- Momentum Flame / Streak Icon -->
+        <path
+            android:pathData="M54,26 C54,26 40,42 40,56 C40,65 46.5,72 54,72 C61.5,72 68,65 68,56 C68,46 60,38 60,38 C60,38 62,45 58,49 C54,53 48,51 48,46 C48,40 54,26 54,26 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="40"
+                    android:startY="26"
+                    android:endX="68"
+                    android:endY="72"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FF6B4A" />
+                    <item android:offset="0.5" android:color="#FF8A00" />
+                    <item android:offset="1.0" android:color="#FFD600" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <!-- Dynamic forward momentum rings/arcs -->
+        <path
+            android:pathData="M34,54 C34,65.05 42.95,74 54,74"
+            android:strokeWidth="3.5"
+            android:strokeColor="#6366F1"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M74,54 C74,42.95 65.05,34 54,34"
+            android:strokeWidth="3.5"
+            android:strokeColor="#06B6D4"
+            android:strokeLineCap="round" />
+    </group>
+</vector>

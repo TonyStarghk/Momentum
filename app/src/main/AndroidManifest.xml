@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Custom Scheme Deep Link: momentum://invite -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="momentum" android:host="invite" />
+            </intent-filter>
+
+            <!-- Web App Invite Link -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="ais-pre-7acdqz6jdhm5p4itiyuxoy-837179413272.asia-southeast1.run.app" />
+                <data
+                    android:scheme="https"
+                    android:host="ais-dev-7acdqz6jdhm5p4itiyuxoy-837179413272.asia-southeast1.run.app" />
+                <data
+                    android:scheme="https"
+                    android:host="momentum.app" />
+            </intent-filter>
+        </activity>
+
+        <!-- Momentum Home Screen App Widget -->
+        <receiver
+            android:name=".widget.MomentumWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/momentum_widget_info" />
+        </receiver>
+
+        <!-- Smart Habit Reminder Receiver -->
+        <receiver
+            android:name=".receiver.HabitReminderReceiver"
+            android:exported="false" />
+
+        <!-- Habit Notification Quick Action Receiver -->
+        <receiver
+            android:name=".receiver.HabitNotificationActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.momentum.ACTION_QUICK_CHECK_IN" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
